@@ -1,1 +1,24 @@
-<p>employee works!</p>
+<h1 class="display-4">EMP. Register</h1>
+
+<form #form="ngForm" autocomplete="off">
+    <div class="form-group mt-3">
+        <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formdata.fullname" class="form-control" placeholder="Full Name">
+    </div>
+    <div class="form-group mt-3">
+        <input name="position" #position="ngModel" [(ngModel)]="service.formdata.position" class="form-control" placeholder="Position">
+    </div>
+
+    <div class="row mt-3">
+        <div class="form-group col-md-6 ">
+            <input name="empCode" #empCode="ngModel" [(ngModel)]="service.formdata.empCode" class="form-control" placeholder="EMP-Code">
+        </div>
+        <div class="form-group col-md-6">
+            <input name="mobile" #mobile="ngModel" [(ngModel)]="service.formdata.mobile" class="form-control" placeholder="Mobile NO ">
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-lg btn-block btn-info w-100">SUBMIT</button>
+    </div>
+   
+
+</form>
