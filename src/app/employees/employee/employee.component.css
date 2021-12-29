@@ -1,0 +1,7 @@
+input.ng-touched.ng-invaild{
+    border: red;
+}
+
+.validation-error{
+    color: red;
+}

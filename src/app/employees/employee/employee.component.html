@@ -1,23 +1,28 @@
 <h1 class="display-4">EMP. Register</h1>
 
-<form #form="ngForm" autocomplete="off">
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formdata.id">
     <div class="form-group mt-3">
-        <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formdata.fullname" class="form-control" placeholder="Full Name">
+        <input name="fullname" #fullname="ngModel" [(ngModel)]="service.formdata.fullname" class="form-control" placeholder="Full Name" required>
+        <div *ngIf="fullname.invalid && fullname.touched" class="validation-error">This field is required</div>
     </div>
     <div class="form-group mt-3">
-        <input name="position" #position="ngModel" [(ngModel)]="service.formdata.position" class="form-control" placeholder="Position">
+        <input name="position" #position="ngModel" [(ngModel)]="service.formdata.position" class="form-control" placeholder="Position" required>
+        <span  *ngIf="position.invalid && position.touched" style="color: red;">**</span>
     </div>
 
     <div class="row mt-3">
         <div class="form-group col-md-6 ">
-            <input name="empCode" #empCode="ngModel" [(ngModel)]="service.formdata.empCode" class="form-control" placeholder="EMP-Code">
+            <input name="empCode" #empCode="ngModel" [(ngModel)]="service.formdata.empCode" class="form-control" placeholder="EMP-Code" required>
+            <span  *ngIf="empCode.invalid && empCode.touched" style="color: red;">**</span>
         </div>
         <div class="form-group col-md-6">
             <input name="mobile" #mobile="ngModel" [(ngModel)]="service.formdata.mobile" class="form-control" placeholder="Mobile NO ">
+            
         </div>
     </div>
-    <div class="form-group mt-3">
-        <button type="submit" class="btn btn-lg btn-block btn-info w-100">SUBMIT</button>
+    <div class="form-group mt-3 ">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info w-100">SUBMIT</button>
     </div>
    
 
